@@ -8,7 +8,7 @@ Clone the repository and install the dependencies.
 
 ```bash
 git clone https://github.com/x88y/montekrist-test-work.git
-cd swapi-search-api
+cd montekrist-test-work
 npm install
 ```
 
