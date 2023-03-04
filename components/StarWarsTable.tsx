@@ -12,7 +12,7 @@ function StarWarsTable(props: any) {
         </tr>
       </thead>
       <tbody>
-        {starships?.map((starship) => (
+        {starships?.map((starship: any) => (
           <tr key={starship.name}>
             <td>{starship.name}</td>
             <td>{starship.length}</td>
@@ -29,7 +29,7 @@ function StarWarsTable(props: any) {
         </tr>
       </thead>
       <tbody>
-        {planets?.map((planet) => (
+        {planets?.map((planet: any) => (
           <tr key={planet.name}>
             <td>{planet.name}</td>
             <td>{planet.diameter}</td>
@@ -46,7 +46,7 @@ function StarWarsTable(props: any) {
         </tr>
       </thead>
       <tbody>
-        {people?.map((person) => (
+        {people?.map((person: any) => (
           <tr key={person.name}>
             <td>{person.name}</td>
             <td>{person.gender}</td>
