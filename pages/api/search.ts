@@ -23,7 +23,7 @@ export default async function handler(
   res: NextApiResponse<any>
 ) {
   if (typeof req.query.name !== "string") {
-    return res.status(200).json({ error: "Wrong usage" });
+    return res.status(400).json({ error: "Wrong usage" });
   }
   const name: string = req.query.name;
 
