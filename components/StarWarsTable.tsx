@@ -1,9 +1,7 @@
 import React from "react";
 
 function StarWarsTable(props: any) {
-
  const { starships, planets, people } = props.props;
-  
   return (
     <table className="table">
       <thead>
