@@ -12,7 +12,19 @@ cd swapi-search-api
 npm install
 ```
 
-Start dev server:
-```text
-npm run build
+## Usage
+To start the server, run:
+
+```bash
+npm run dev
+```
+
+This will start the server on http://localhost:3000.
+
+Search
+To search for characters, planets, and starships, make a GET request to the `/api/search` endpoint with the `name` query parameter set to the value you want to search for.
+
+```bash
+Example request:
+GET /api/search?name=skywalker
 ```
