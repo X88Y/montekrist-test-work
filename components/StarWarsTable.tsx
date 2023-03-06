@@ -1,7 +1,13 @@
 import React from "react";
 
-function StarWarsTable(props: any) {
- const { starships, planets, people } = props.props;
+function StarWarsTable(props: {
+  props: {
+    starships: Starship[];
+    planets: Planet[];
+    people: Person[];
+  };
+}) {
+  const { starships, planets, people } = props.props;
   return (
     <table className="table">
       <thead>
@@ -12,7 +18,7 @@ function StarWarsTable(props: any) {
         </tr>
       </thead>
       <tbody>
-        {starships?.map((starship: any) => (
+        {starships?.map((starship: Starship) => (
           <tr key={starship.name}>
             <td>{starship.name}</td>
             <td>{starship.length}</td>
@@ -29,7 +35,7 @@ function StarWarsTable(props: any) {
         </tr>
       </thead>
       <tbody>
-        {planets?.map((planet: any) => (
+        {planets?.map((planet: Planet) => (
           <tr key={planet.name}>
             <td>{planet.name}</td>
             <td>{planet.diameter}</td>
@@ -46,7 +52,7 @@ function StarWarsTable(props: any) {
         </tr>
       </thead>
       <tbody>
-        {people?.map((person: any) => (
+        {people?.map((person: Person) => (
           <tr key={person.name}>
             <td>{person.name}</td>
             <td>{person.gender}</td>

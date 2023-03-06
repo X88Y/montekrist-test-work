@@ -12,22 +12,27 @@ async function swapiSearch(name: string, api: string) {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any>
+  res: NextApiResponse<{
+    people?: Person[];
+    planets?: Planet[];
+    starships?: Starship[];
+    message: string;
+  }>
 ) {
   if (typeof req.query.name !== "string") {
-    return res.status(400).json({ error: "Wrong usage" });
+    return res.status(400).json({ message: "Wrong usage" });
   }
   const name: string = req.query.name;
 
-  let people = await swapiSearch(name, "https://swapi.dev/api/people/");
-  let planets = await swapiSearch(name, "https://swapi.dev/api/planets/");
-  let starships = await swapiSearch(name, "https://swapi.dev/api/starships/");
+  let people: Person[] = await swapiSearch(name, "https://swapi.dev/api/people/");
+  let planets: Planet[] = await swapiSearch(name, "https://swapi.dev/api/planets/");
+  let starships: Starship[] = await swapiSearch(name, "https://swapi.dev/api/starships/");
 
-  people = people.map((val) => {
+  people = people.map((val: Person) => {
     return { name: val.name, gender: val.gender, mass: val.mass };
   });
 
-  planets = planets.map((val) => {
+  planets = planets.map((val: Planet) => {
     return {
       name: val.name,
       diameter: val.diameter,
@@ -35,7 +40,7 @@ export default async function handler(
     };
   });
 
-  starships = starships.map((val) => {
+  starships = starships.map((val: Starship) => {
     return {
       name: val.name,
       length: val.length,
@@ -44,6 +49,7 @@ export default async function handler(
   });
 
   res.status(200).json({
+    message: "Success",
     people,
     planets,
     starships,
