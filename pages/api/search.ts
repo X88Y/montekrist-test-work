@@ -3,17 +3,9 @@ import { constants } from "buffer";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 async function swapiSearch(name: string, api: string) {
+  const searchApi = api + `?search=${name}`
   const response = await fetch(api);
   const data = await response.json();
-
-  var results: any[] = data.results.filter((result: any) =>
-    result.name.toLowerCase().includes(name.toLowerCase())
-  );
-
-  if (data.next) {
-    const nextPage = await swapiSearch(name, data.next);
-    results = results.concat(nextPage);
-  }
 
   return results;
 }
