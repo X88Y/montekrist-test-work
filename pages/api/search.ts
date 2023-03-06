@@ -7,7 +7,7 @@ async function swapiSearch(name: string, api: string) {
   const response = await fetch(api);
   const data = await response.json();
 
-  return data;
+  return data.results;
 }
 
 export default async function handler(
@@ -23,6 +23,7 @@ export default async function handler(
   let planets = await swapiSearch(name, "https://swapi.dev/api/planets/");
   let starships = await swapiSearch(name, "https://swapi.dev/api/starships/");
 
+  console.log(people);
   people = people.map((val) => {
     return { name: val.name, gender: val.gender, mass: val.mass };
   });
