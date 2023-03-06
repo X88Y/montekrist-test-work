@@ -7,7 +7,7 @@ async function swapiSearch(name: string, api: string) {
   const response = await fetch(api);
   const data = await response.json();
 
-  return results;
+  return data;
 }
 
 export default async function handler(
