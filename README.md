@@ -47,7 +47,7 @@ Search for Star Wars characters, planets, and starships.
     - `name` - The name of the starship.
     - `length` - The length of the starship.
     - `crew` - The number of crew members on the starship.
-
+  - `message` - A message from the server may indicate a problem
 #### Errors
 
 - `400 Bad Request` - Returns an error message if the request parameters are missing or invalid.
