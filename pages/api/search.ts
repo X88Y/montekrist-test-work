@@ -23,7 +23,6 @@ export default async function handler(
   let planets = await swapiSearch(name, "https://swapi.dev/api/planets/");
   let starships = await swapiSearch(name, "https://swapi.dev/api/starships/");
 
-  console.log(people);
   people = people.map((val) => {
     return { name: val.name, gender: val.gender, mass: val.mass };
   });
